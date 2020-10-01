@@ -1,33 +1,63 @@
-<section class="user-login section">
+<section class="bg-gradient-primary" id="login-section">
+
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="block">
-                    <!-- Image -->
-                    <div class="image align-self-center"><img class="img-fluid" src="https://images.pexels.com/photos/1819650/pexels-photo-1819650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="desk-image"></div>
-                    <!-- Content -->
-                    <div class="content text-center">
-                        <div class="logo">
-                            <!--  <img src="assets/images/logo.png" alt=""> --><a href="">VSMU Plus</a>
-                        </div>
-                        <div class="title-text">
-                            <h3>Sign in to To Your Account</h3>
-                        </div>
-                        <form (ngSubmit)="login(loginForm.value)" [formGroup]="loginForm">
-                            <!-- Username -->
-                            <input class="form-control main" type="email" name="email" formControlName="email" placeholder="Username" required>
-                            <!-- Password -->
-                            <input class="form-control main" type="password" name="password" formControlName="password" placeholder="Password" required>
-                            <!-- Submit Button -->
-                            <button class="btn btn-main-md" type="submit" [disabled]="!loginForm.valid">sign in</button>
-                        </form>
-                        <div class="new-acount">
-                            <a href="#">Forget your password?</a>
-                            <p>Don't Have an account? <a href="sign-up.html"> SIGN UP</a></p>
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div id="login-img" class="col-lg-6 d-none d-lg-block bg-login-image">
+                                <img src="https://cdn.pixabay.com/photo/2020/05/04/09/09/giraffe-5128394_1280.jpg" alt="login">
+                            </div>
+                            <div class="col-lg-6" id="login-content">
+                                <div class="p-5" id="login-box">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Добро пожаловать!</h1>
+                                    </div>
+                                    <form (ngSubmit)="login(loginForm.value)" [formGroup]="loginForm" class="user">
+                                        <div class="form-group">
+                                            <input class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" type="email" name="email" formControlName="email" placeholder="E-mail" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-user" id="exampleInputPassword" type="password" name="password" formControlName="password" placeholder="Пароль" required>
+                                        </div>
+                                        <button type="submit" href="index.html" class="btn btn-primary btn-user btn-block">Войти</button>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Забыли пароль?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="register.html">Создать новый аккаунт</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="">На главную</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
 </section>
