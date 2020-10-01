@@ -1,0 +1,33 @@
+<section class="user-login section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="block">
+                    <!-- Image -->
+                    <div class="image align-self-center"><img class="img-fluid" src="https://images.pexels.com/photos/1819650/pexels-photo-1819650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="desk-image"></div>
+                    <!-- Content -->
+                    <div class="content text-center">
+                        <div class="logo">
+                            <!--  <img src="assets/images/logo.png" alt=""> --><a href="">VSMU Plus</a>
+                        </div>
+                        <div class="title-text">
+                            <h3>Sign in to To Your Account</h3>
+                        </div>
+                        <form (ngSubmit)="login(loginForm.value)" [formGroup]="loginForm">
+                            <!-- Username -->
+                            <input class="form-control main" type="email" name="email" formControlName="email" placeholder="Username" required>
+                            <!-- Password -->
+                            <input class="form-control main" type="password" name="password" formControlName="password" placeholder="Password" required>
+                            <!-- Submit Button -->
+                            <button class="btn btn-main-md" type="submit" [disabled]="!loginForm.valid">sign in</button>
+                        </form>
+                        <div class="new-acount">
+                            <a href="#">Forget your password?</a>
+                            <p>Don't Have an account? <a href="sign-up.html"> SIGN UP</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
 
-  constructor() { }
+  items: Observable<any[]>;
 
-  ngOnInit(): void {
+  constructor(firestore: AngularFirestore) {
+    this.items = firestore.collection('ideas').valueChanges();
   }
 
 }
