@@ -9,19 +9,25 @@ import { AuthService } from '../auth/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private AuthService: AuthService) { }
+  public userStatus;
+  public showStatus;
 
-  public userStatus = this.AuthService.userStatus;
+  constructor(private AuthService: AuthService) { 
+    this.AuthService.userChanges();
+    console.log(this.AuthService.currentUser)
+    this.AuthService.userStatusChanges.subscribe(x => {
+      this.userStatus = x;
+      //this.showStatus = true;
+    });
+  }
+
+  
 
   logout() {
     this.AuthService.logOut();
   }
 
   ngOnInit(): void {
-    this.AuthService.userChanges();
-
-    this.AuthService.userStatusChanges.subscribe(x => this.userStatus = x);
-    console.log(this.userStatus);
   }
 
 }

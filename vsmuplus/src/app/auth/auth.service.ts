@@ -14,6 +14,7 @@ export class AuthService {
   public currentUser: any;
   public userStatus: string;
   public userStatusChanges: BehaviorSubject<string> = new BehaviorSubject<string>('user');
+  public userboolean;
   
 
   setUserStatus(userStatus: any): void {
@@ -66,11 +67,7 @@ export class AuthService {
             this.currentUser = userRef.data();
             //setUserStatus
             this.setUserStatus(this.currentUser)
-            if(userRef.data().role !== "admin") {
-              this.router.navigate(["/"]);
-            }else{
-              this.router.navigate(["/admin"]);
-            }
+            this.router.navigate(["/admin"]);
           })
         })
        
@@ -104,8 +101,10 @@ export class AuthService {
             console.log(this.userStatus)
             
             if(userRef.data().role !== "admin") {
+              console.log('ne admin')
              this.ngZone.run(() => this.router.navigate(["/"]));
             }else{
+              console.log('admin');
              this.ngZone.run(() => this.router.navigate(["/admin"])); 
             }
           })
@@ -114,9 +113,9 @@ export class AuthService {
         //this is the error you where looking at the video that I wasn't able to fix
         //the function is running on refresh so its checking if the user is logged in or not
         //hence the redirect to the login
+        console.log('zaloginis');
         this.ngZone.run(() => this.router.navigate(["/login"]));
       }
     })
   }
-
 }
