@@ -13,4 +13,5 @@
  #file-label {
      cursor: pointer;
      text-align: center;
+     overflow: hidden;
  }

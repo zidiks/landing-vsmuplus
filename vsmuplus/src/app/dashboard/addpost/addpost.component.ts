@@ -13,6 +13,7 @@ export class AddpostComponent implements OnInit {
 
   public userStatus;
   public dataModel;
+  public fileIsLoad;
   
   text: string;
   title: string;
@@ -50,7 +51,10 @@ export class AddpostComponent implements OnInit {
   });
   }
 
-
+  handleFileInput($event) {
+    console.log($event);
+    this.fileIsLoad = $event[0].name;
+  }
 
   ngOnInit(): void {
 

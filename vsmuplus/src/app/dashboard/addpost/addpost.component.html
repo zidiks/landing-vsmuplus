@@ -13,8 +13,9 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="file" name="file" id="file" class="inputfile" />
-                <label id="file-label" class="form-control form-control-user" for="file">Выберите изображение <i class="fas mt-1 fa-upload fa-fw"></i></label>
+                <label id="file-label" class="form-control form-control-user" for="file"><span style="white-space: nowrap;" *ngIf="fileIsLoad; else fileLoad">{{ fileIsLoad }}</span></label>
+                <ng-template #fileLoad>Выберите изображение <i class="fas mt-1 fa-upload fa-fw"></i></ng-template>
+                <input type="file" name="file" id="file" class="inputfile" accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg" (change)="handleFileInput($event.target.files)">
             </div>
             <div class="col-sm-3">
                 <select class="form-control form-control-user" name="cat" id="addpost-select" [(ngModel)]="category">
