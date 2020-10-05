@@ -1,0 +1,16 @@
+ .form-control-user {
+     padding: 0.3rem 1rem;
+     -moz-appearance: none;
+     -webkit-appearance: none;
+     appearance: none !important;
+     border: 1px solid #cccccc;
+ }
+ 
+ #file {
+     display: none;
+ }
+ 
+ #file-label {
+     cursor: pointer;
+     text-align: center;
+ }

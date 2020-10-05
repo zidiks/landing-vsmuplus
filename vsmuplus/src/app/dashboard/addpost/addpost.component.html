@@ -1,0 +1,57 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Добавить пост</h1>
+    </div>
+
+    <form>
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <input [(ngModel)]="title" type="text" class="form-control form-control-user" name="title" placeholder="Название">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="file" name="file" id="file" class="inputfile" />
+                <label id="file-label" class="form-control form-control-user" for="file">Выберите изображение <i class="fas mt-1 fa-upload fa-fw"></i></label>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control form-control-user" name="cat" id="addpost-select" [(ngModel)]="category">
+                    <option [ngValue]="undefined" disabled>Категория</option>
+                    <option [ngValue]="'stud'">Студ. жизнь</option>
+                    <option [ngValue]="'sience'">Наука</option>
+                    <option [ngValue]="'events'">Мероприятия</option>
+                    <option [ngValue]="'sport'">Спорт</option>
+                    <option [ngValue]="'home'">Общежития</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" [(ngModel)]="organisation" name="org" class="form-control form-control-user" disabled>
+            </div>
+        </div>
+        <editor [(ngModel)]="text" [ngModelOptions]="{standalone: true}" id="editor-box" apiKey="lqff7hxpp6u4amfmyn7odfi6wp24azgfkp4rx4gaf28pdk9k" [init]="{
+            height: 500,
+            menubar: false,
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar:
+              'undo redo | formatselect | bold italic backcolor | \
+              alignleft aligncenter alignright alignjustify | \
+              bullist numlist outdent indent | removeformat | help'
+          }"></editor>
+        <div class="form-group row d-flex justify-content-center">
+            <button (click)="pushPost()" class="btn mx-2 btn-primary btn-user btn-block my-3 w-25 text-uppercase">
+                Опубликовать
+            </button>
+            <button class="btn mx-2 btn-primary btn-user btn-block my-3 w-25 text-uppercase">
+                Сохранить как черновик
+            </button>
+        </div>
+
+    </form>
+
+</div>

@@ -14,7 +14,7 @@ export class AuthService {
   public currentUser: any;
   public userStatus: string;
   public userStatusChanges: BehaviorSubject<string> = new BehaviorSubject<string>('user');
-  public userboolean;
+  public userboolean: boolean = false;
   
 
   setUserStatus(userStatus: any): void {
@@ -90,7 +90,7 @@ export class AuthService {
   }
 
 
-  userChanges(){
+  userChanges(url){
     this.afAuth.onAuthStateChanged(currentUser => {
       if(currentUser){
         this.firestore.collection("users").ref.where("username", "==", currentUser.email).onSnapshot(snap =>{
@@ -100,12 +100,16 @@ export class AuthService {
             this.setUserStatus(this.currentUser);
             console.log(this.userStatus)
             
-            if(userRef.data().role !== "admin") {
-              console.log('ne admin')
+            if(userRef.data().role !== "admin" && userRef.data().role !== "moderator") {
+              console.log('permissions error')
              this.ngZone.run(() => this.router.navigate(["/"]));
             }else{
-              console.log('admin');
-             this.ngZone.run(() => this.router.navigate(["/admin"])); 
+              console.log('permisssions succes');
+              this.userboolean = true;
+              if ( this.router.url == '/admin') {
+                this.ngZone.run(() => this.router.navigate(['/admin/index'])); 
+              } else
+             this.ngZone.run(() => this.router.navigate([url])); 
             }
           })
         })

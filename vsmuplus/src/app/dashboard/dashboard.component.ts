@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -10,15 +14,27 @@ import { AuthService } from '../auth/auth.service';
 export class DashboardComponent implements OnInit {
 
   public userStatus;
-  public showStatus;
+  public showStatus: boolean = false;
+  public isAdmin: boolean = false;
 
-  constructor(private AuthService: AuthService) { 
-    this.AuthService.userChanges();
-    console.log(this.AuthService.currentUser)
+  constructor(private AuthService: AuthService, private router: Router, private ngZone: NgZone) { 
+    this.AuthService.userChanges(this.router.url);
     this.AuthService.userStatusChanges.subscribe(x => {
       this.userStatus = x;
-      //this.showStatus = true;
+      switch (this.userStatus.role) {
+        case 'admin':
+          this.showStatus = true;
+          this.isAdmin = true;
+          break;
+        case 'moderator': 
+          this.showStatus = true;
+          break;
+        default:
+          this.showStatus = false;
+          break;
+      }
     });
+
   }
 
   

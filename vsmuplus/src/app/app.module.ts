@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AddpostModule } from './dashboard/addpost/addpost.module';
+import { InviteModule } from './dashboard/invite/invite.module';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
       messagingSenderId: "482258719582",
       appId: "1:482258719582:web:8a47a8984f32e1fcc3b5cf"
     }),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AddpostModule,
+    InviteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
