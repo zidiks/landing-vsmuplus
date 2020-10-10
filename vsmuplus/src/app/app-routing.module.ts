@@ -1,7 +1,5 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthService } from './auth/auth.service';
-import { LandingComponent } from "./landing/landing.component";
 
 const routes: Routes = [
   { path: 'signup', loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule) },

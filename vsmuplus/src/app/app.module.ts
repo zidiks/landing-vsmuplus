@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AddpostModule } from './dashboard/addpost/addpost.module';
 import { InviteModule } from './dashboard/invite/invite.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import { InviteModule } from './dashboard/invite/invite.module';
     }),
     AngularFirestoreModule,
     AddpostModule,
-    InviteModule
+    InviteModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
