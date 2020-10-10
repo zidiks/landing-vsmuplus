@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/auth/auth.service';
-import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -14,6 +13,7 @@ export class AddpostComponent implements OnInit {
   public userStatus;
   public dataModel;
   public fileIsLoad;
+  public fileToUpload: File = null;
   
   text: string;
   title: string;
@@ -32,6 +32,7 @@ export class AddpostComponent implements OnInit {
   }
 
   pushPost() {
+    //upload img
     console.log(this.title);
     console.log(this.category);
     console.log(this.organisation);
@@ -51,9 +52,10 @@ export class AddpostComponent implements OnInit {
   });
   }
 
-  handleFileInput($event) {
-    console.log($event);
-    this.fileIsLoad = $event[0].name;
+  handleFileInput(files: FileList) {
+    console.log(files);
+    this.fileIsLoad = files.item(0).name;
+    this.fileToUpload = files.item(0);
   }
 
   ngOnInit(): void {

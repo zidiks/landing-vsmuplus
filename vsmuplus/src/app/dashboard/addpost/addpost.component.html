@@ -5,7 +5,7 @@
         <h1 class="h3 mb-0 text-gray-800">Добавить пост</h1>
     </div>
 
-    <form>
+    <form (ngSubmit)="pushPost()">
         <div class="form-group row">
             <div class="col-sm-12">
                 <input [(ngModel)]="title" type="text" class="form-control form-control-user" name="title" placeholder="Название">
@@ -45,7 +45,7 @@
               bullist numlist outdent indent | removeformat | help'
           }"></editor>
         <div class="form-group row d-flex justify-content-center">
-            <button (click)="pushPost()" class="btn mx-2 btn-primary btn-user btn-block my-3 w-25 text-uppercase">
+            <button type="submit" class="btn mx-2 btn-primary btn-user btn-block my-3 w-25 text-uppercase">
                 Опубликовать
             </button>
             <button class="btn mx-2 btn-primary btn-user btn-block my-3 w-25 text-uppercase">
