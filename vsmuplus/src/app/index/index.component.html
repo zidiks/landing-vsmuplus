@@ -1,5 +1,82 @@
-<h1>Home</h1>
+<mat-toolbar id="dashboard-nav" color="primary">
+    <mat-icon>bubble_chart</mat-icon>
+    <span style="margin: 0 0 5px 3px">VSMU<sup> plus</sup></span>
+    <div class="example-button-row" style="margin-left: 5vw;">
+        <a mat-button routerLink="index">главная</a>
+        <a mat-button href="">о нас</a>
+        <a mat-button href="">контакты</a>
+    </div>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon">
+      <mat-icon>login</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Главная</button>
+        <button mat-menu-item>О нас</button>
+        <button mat-menu-item>Контакты</button>
+    </mat-menu>
+</mat-toolbar>
 
-<ul>
-    <li><a href="admin">Admin</a></li>
-</ul>
+<section id="index-content">
+    <div class="start-info">
+        <div class="start-info-inner">
+            <div class="start-info-left">
+                <div class="start-info-left-inner">
+                    <h2>Чем мы занимаемся?</h2>
+                    <p>Мы создаем продукты, которые сделают различные аспекты вашей жизни в университете гораздо лучше и проще.</p>
+                    <button mat-raised-button color="primary">Подробнее</button>
+                </div>
+            </div>
+            <div class="start-info-right">
+                <img class="start-info-img" src="/assets/index/img/team.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="products">
+        <div class="products-item siencenet fade">
+            <a href="https://siencenet.vsmuplus.site/">
+                <div>
+                    <img src="/assets/index/img/siencenet.svg" alt="">
+                    <span>SienceNET</span>
+                    <p>Сервис, который помогает реализовывать ваши инновационные идеи.</p>
+                </div>
+            </a>
+        </div>
+        <div class="products-item socialapp fade">
+            <a href="#">
+                <div>
+                    <img src="/assets/index/img/socialapp.svg" alt="">
+                    <span>Social App</span>
+                    <p>Прогрессивное веб-приложение со всей социальной жизнью университета.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="contacts">
+        <div class="title">КОНТАКТЫ</div>
+        <div class="c-content">
+            <div>
+                <h2>Почта</h2>
+                <p>zidiks228@gmail.com</p>
+                <h2>Номер</h2>
+                <p>+375 (33) 389-60-71</p>
+            </div>
+            <div>
+                <h2>Соц. сети</h2>
+                <p><a href="https://vk.com/zidiks">Вконтакте</a></p>
+                <h2>Skype</h2>
+                <p>darkwood311</p>
+            </div>
+            <div>
+                <h2>Навигация</h2>
+                <p><a href="https://vk.com/zidiks">Политика приватности</a></p>
+                <p><a href="https://vk.com/zidiks">SienceNET</a></p>
+                <p><a href="https://vk.com/zidiks">Social App</a></p>
+            </div>
+        </div>
+        <div style="font-family: Arial, Helvetica, sans-serif; margin-top: 4rem;">Copyright © 2020 vsmuplus.site</div>
+    </div>
+</section>
